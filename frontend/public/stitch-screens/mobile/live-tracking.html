@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PulseGuard - Live Tracking</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "outline": "#6f7a6e",
+                    "on-secondary-container": "#516b4d",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#006d30",
+                    "tertiary-fixed": "#caead6",
+                    "secondary-fixed-dim": "#b1cfaa",
+                    "secondary": "#4b6547",
+                    "surface-container-high": "#e8e8e6",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#597665",
+                    "secondary-container": "#cdebc5",
+                    "tertiary": "#415d4d",
+                    "primary-fixed-dim": "#79db8d",
+                    "on-secondary-fixed": "#092009",
+                    "on-primary-container": "#d3ffd5",
+                    "inverse-on-surface": "#f1f1ef",
+                    "on-primary-fixed": "#00210a",
+                    "on-surface": "#1a1c1b",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#2f3130",
+                    "background": "#f9f9f7",
+                    "surface-container": "#eeeeec",
+                    "surface-dim": "#dadad8",
+                    "on-surface-variant": "#3f493f",
+                    "surface-container-low": "#f4f4f2",
+                    "inverse-primary": "#79db8d",
+                    "on-tertiary-fixed": "#042014",
+                    "secondary-fixed": "#cdebc5",
+                    "on-tertiary-fixed-variant": "#314d3e",
+                    "on-secondary-fixed-variant": "#344d31",
+                    "on-primary-fixed-variant": "#005323",
+                    "tertiary-fixed-dim": "#afceba",
+                    "primary-container": "#15803d",
+                    "surface-container-highest": "#e2e3e1",
+                    "surface": "#f9f9f7",
+                    "on-tertiary-container": "#dcfce7",
+                    "outline-variant": "#becabc",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#00652c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#1a1c1b",
+                    "surface-bright": "#f9f9f7",
+                    "primary-fixed": "#95f8a7",
+                    "surface-variant": "#e2e3e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "12px",
+                    "stack-md": "24px",
+                    "gutter": "24px",
+                    "container-padding": "40px",
+                    "unit": "8px",
+                    "stack-lg": "48px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["13px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Custom Utilities for Matte Skeuomorphism */
+        .glass-panel {
+            background: rgba(249, 249, 247, 0.75);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+        .matte-shadow {
+            box-shadow: 0 24px 60px rgba(26, 28, 27, 0.08), 0 4px 12px rgba(26, 28, 27, 0.03);
+        }
+        .recessed-surface {
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.04), inset 0 0 0 1px rgba(0,0,0,0.02);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-variant text-on-surface antialiased h-screen w-screen overflow-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Full Screen Map Background Container -->
+<div class="absolute inset-0 z-0">
+<!-- Map Image Layer -->
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A highly detailed, top-down view of a modern digital city map interface, stylized for a minimalist medical application. The map features soft, muted sage greens, pristine whites, and light greys, with a clean, uncluttered aesthetic. The lighting is flat and uniform, conveying a clinical, precise, light-mode mood fitting for an emergency response UI." data-location="Metropolitan Area" style="background-image: url('https://placeholder.pics/svg/300');">
+</div>
+<!-- Simulated Route Path Overlay (SVG) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" fill="none" preserveaspectratio="xMidYMid slice" viewbox="0 0 400 800">
+<!-- Glow Effect for Path -->
+<path class="opacity-30 blur-sm" d="M 80,650 C 150,550 280,450 200,250" stroke="#79db8d" stroke-linecap="round" stroke-width="12"></path>
+<!-- Main Path -->
+<path class="opacity-90" d="M 80,650 C 150,550 280,450 200,250" stroke="#00652c" stroke-dasharray="12 16" stroke-linecap="round" stroke-width="6"></path>
+</svg>
+<!-- User Location Marker (Patient) -->
+<div class="absolute top-[30%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center">
+<!-- Pulsing Ring -->
+<div class="absolute w-24 h-24 bg-primary/20 rounded-full animate-ping opacity-75"></div>
+<!-- Marker Pin -->
+<div class="bg-primary text-on-primary rounded-full p-4 matte-shadow flex items-center justify-center border-[6px] border-surface relative z-10">
+<span class="material-symbols-outlined font-variation-settings-'FILL'-1 text-[28px]">person_pin_circle</span>
+</div>
+<!-- Ground Shadow -->
+<div class="w-12 h-3 bg-black/15 rounded-[100%] blur-md mt-2"></div>
+</div>
+<!-- Ambulance Unit Marker (Inbound) -->
+<div class="absolute bottom-[20%] left-[20%] -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center">
+<div class="bg-error text-on-error rounded-full p-4 matte-shadow flex items-center justify-center border-[4px] border-surface transition-transform duration-1000 ease-in-out">
+<span class="material-symbols-outlined font-variation-settings-'FILL'-1 text-[28px] animate-pulse">ambulance</span>
+</div>
+<div class="bg-surface text-on-surface font-label-sm text-label-sm px-3 py-1 rounded-full mt-2 matte-shadow whitespace-nowrap">
+                Unit 42
+            </div>
+</div>
+</div>
+<!-- Floating Top Header Area -->
+<header class="absolute top-0 left-0 w-full p-gutter pt-12 z-50 flex justify-between items-start pointer-events-none">
+<!-- Back Action -->
+<button class="w-14 h-14 glass-panel rounded-full flex items-center justify-center text-on-surface hover:bg-surface transition-colors pointer-events-auto matte-shadow">
+<span class="material-symbols-outlined text-[28px]">arrow_back</span>
+</button>
+<!-- Active Status Badge -->
+<div class="glass-panel rounded-full px-5 py-3 flex items-center gap-3 pointer-events-auto matte-shadow">
+<div class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-error"></span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface uppercase tracking-widest mt-0.5">En Route</span>
+</div>
+</header>
+<!-- Bottom Interface Area (Stacked Cards) -->
+<main class="absolute bottom-0 left-0 w-full px-gutter pb-12 z-40 flex flex-col gap-stack-sm pointer-events-none">
+<!-- Unit ETA & Info Card (Matte Skeuomorphism) -->
+<div class="bg-surface rounded-xl p-6 matte-shadow pointer-events-auto w-full max-w-[400px] mx-auto border border-white/50 relative overflow-hidden">
+<!-- Subtle gradient flair in background -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="flex items-center justify-between relative z-10">
+<div class="flex flex-col">
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">local_hospital</span>
+                        Mobile ICU • Unit 42
+                    </p>
+<div class="flex items-baseline gap-2 -ml-1">
+<span class="font-headline-xl text-headline-xl text-primary tracking-tighter">03</span>
+<span class="font-headline-md text-headline-md text-primary/80">min</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-[18px] text-outline">route</span>
+                        1.2 miles away
+                    </p>
+</div>
+<!-- Action / Contact Button -->
+<button class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center text-on-primary-container shadow-inner hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined font-variation-settings-'FILL'-1 text-[28px]">call</span>
+</button>
+</div>
+</div>
+<!-- Live Patient Telemetry Card (PulseGuard Core Feature) -->
+<div class="bg-surface rounded-xl p-6 matte-shadow pointer-events-auto w-full max-w-[400px] mx-auto border border-white/50">
+<div class="flex justify-between items-center mb-5">
+<h3 class="font-label-sm text-label-sm text-on-surface uppercase tracking-widest">Live Patient Telemetry</h3>
+<div class="flex items-center gap-1.5 px-2.5 py-1 bg-tertiary-container/10 rounded-full">
+<span class="material-symbols-outlined text-tertiary text-[14px] animate-pulse">wifi_tethering</span>
+<span class="font-label-sm text-[10px] text-tertiary uppercase font-bold tracking-wider">Syncing</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Heart Rate Readout (Recessed hardware look) -->
+<div class="bg-surface-container-low rounded-lg p-4 recessed-surface flex flex-col justify-between relative overflow-hidden">
+<!-- Subtle red glow for heart rate -->
+<div class="absolute bottom-0 right-0 w-16 h-16 bg-error/5 rounded-full blur-xl translate-y-1/2 translate-x-1/4"></div>
+<div class="flex items-center gap-2 mb-3 relative z-10">
+<span class="material-symbols-outlined text-error font-variation-settings-'FILL'-1 text-[20px] animate-[pulse_1s_ease-in-out_infinite]">favorite</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Heart Rate</span>
+</div>
+<div class="flex items-baseline gap-1.5 relative z-10">
+<span class="font-headline-md text-headline-md text-on-surface">112</span>
+<span class="font-label-sm text-[12px] text-outline uppercase tracking-wider">bpm</span>
+</div>
+</div>
+<!-- SpO2 Readout -->
+<div class="bg-surface-container-low rounded-lg p-4 recessed-surface flex flex-col justify-between relative overflow-hidden">
+<!-- Subtle blue/tertiary glow for oxygen -->
+<div class="absolute bottom-0 right-0 w-16 h-16 bg-tertiary/5 rounded-full blur-xl translate-y-1/2 translate-x-1/4"></div>
+<div class="flex items-center gap-2 mb-3 relative z-10">
+<span class="material-symbols-outlined text-tertiary font-variation-settings-'FILL'-1 text-[20px]">air</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Blood O₂</span>
+</div>
+<div class="flex items-baseline gap-1.5 relative z-10">
+<span class="font-headline-md text-headline-md text-on-surface">94</span>
+<span class="font-label-sm text-[12px] text-outline uppercase tracking-wider">%</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

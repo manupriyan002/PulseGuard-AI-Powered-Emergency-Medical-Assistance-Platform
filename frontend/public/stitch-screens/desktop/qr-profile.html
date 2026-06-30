@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PulseGuard - QR Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "surface-container": "#eeeeec",
+                        "primary-fixed": "#95f8a7",
+                        "on-secondary-fixed": "#092009",
+                        "secondary-fixed-dim": "#b1cfaa",
+                        "on-primary-fixed": "#00210a",
+                        "primary-fixed-dim": "#79db8d",
+                        "on-background": "#1a1c1b",
+                        "outline": "#6f7a6e",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#79db8d",
+                        "on-secondary-fixed-variant": "#344d31",
+                        "tertiary-fixed-dim": "#afceba",
+                        "surface-container-high": "#e8e8e6",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#cdebc5",
+                        "on-surface": "#1a1c1b",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f1f1ef",
+                        "outline-variant": "#becabc",
+                        "surface-container-highest": "#e2e3e1",
+                        "surface-container-low": "#f4f4f2",
+                        "primary": "#00652c",
+                        "on-secondary-container": "#516b4d",
+                        "surface": "#f9f9f7",
+                        "background": "#f9f9f7",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#15803d",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#005323",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#3f493f",
+                        "surface-dim": "#dadad8",
+                        "tertiary-fixed": "#caead6",
+                        "surface-variant": "#e2e3e1",
+                        "surface-tint": "#006d30",
+                        "tertiary-container": "#597665",
+                        "inverse-surface": "#2f3130",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f9f9f7",
+                        "tertiary": "#415d4d",
+                        "on-tertiary-fixed-variant": "#314d3e",
+                        "on-tertiary-container": "#dcfce7",
+                        "on-tertiary-fixed": "#042014",
+                        "secondary-container": "#cdebc5",
+                        "secondary": "#4b6547",
+                        "on-primary-container": "#d3ffd5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-padding": "40px",
+                        "stack-lg": "48px",
+                        "gutter": "24px",
+                        "stack-sm": "12px",
+                        "stack-md": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "label-sm": ["13px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen flex flex-col">
+<!-- TopAppBar (Web) -->
+<header class="hidden md:block fixed top-0 w-full z-50 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl backdrop-blur-md shadow-[0_10px_40px_rgba(0,0,0,0.04)] shadow-2xl shadow-black/5">
+<div class="flex justify-between items-center px-8 py-4 w-full max-w-7xl mx-auto">
+<div class="text-xl font-black text-green-800 dark:text-green-500 tracking-tighter">PulseGuard</div>
+<div class="flex items-center gap-6">
+<!-- Navigation links would go here if defined in TopAppBar JSON labels, using active state for Profile -->
+<nav class="flex gap-8">
+<span class="text-slate-400 dark:text-slate-500 hover:opacity-80 transition-opacity font-['Inter'] font-bold tracking-tight active:scale-95 duration-300 cursor-pointer">Dashboard</span>
+<span class="text-green-700 dark:text-green-400 font-bold hover:opacity-80 transition-opacity font-['Inter'] tracking-tight active:scale-95 duration-300 cursor-pointer">Profile</span>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-300">
+<span class="material-symbols-outlined text-green-700 dark:text-green-400">notifications</span>
+</button>
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-300">
+<span class="material-symbols-outlined text-green-700 dark:text-green-400 font-bold" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-gutter pt-24 md:pt-32 pb-40">
+<!-- Matte Card for QR Code -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_40px_60px_-15px_rgba(0,0,0,0.05)] p-stack-md flex flex-col items-center max-w-sm w-full relative mb-stack-md">
+<!-- Status Chip -->
+<div class="absolute -top-4 bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm px-4 py-2 rounded-full shadow-sm flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                Active Monitoring
+            </div>
+<!-- QR Code Placeholder -->
+<div class="w-full aspect-square bg-surface-container-low rounded-lg p-4 flex items-center justify-center mb-6">
+<img alt="QR Code" class="w-full h-full object-cover rounded-[12px] opacity-90 mix-blend-multiply filter contrast-125 grayscale" data-alt="A high-resolution, premium medical QR code displayed on a pristine white digital interface. The QR code features subtle, elegant rounded modules and a brand green central icon, exuding clinical luxury and high-stakes precision. The lighting is soft and diffused, emphasizing a minimalist, matte aesthetic with zero clutter, perfectly suited for an emergency medical response application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMfFOTSLmfWmgOvIdQ7lrRZj7QDEJIo6zOKxkeodU6NzJ32X2qPo3ZVvqLQMBoenfnJmN23MRNAY_IVnsK7pEy5OiMEW9AasDAJ3ZspG_nS_8eOfNKZAAXJZX0Bc4VrFEPICgTo3FgK5pBckNboQ1zYIedCrQO8vf8Y90vrvxFgB_j4NglrFa5FAfizdXn93Z8YYY1xxjUszksxZ5JdXgd8m_0gxm5BlKui2df9k9eT97tms1T6LPR2Ks-JSCsr0E99kiGxMGPb_g"/>
+</div>
+<div class="text-center w-full">
+<h1 class="font-headline-md text-headline-md text-on-surface mb-unit">Evelyn Harper</h1>
+<div class="flex justify-center items-center gap-3 mb-stack-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Blood Type</span>
+<span class="bg-error-container text-on-error-container font-headline-md text-headline-md px-3 py-1 rounded-DEFAULT border border-error/20">O-</span>
+</div>
+<div class="bg-surface-container-low rounded-DEFAULT p-4 mt-4 w-full text-left">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase">Primary Contact</p>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">David Harper</p>
+<p class="font-body-md text-body-md text-primary mt-1 flex items-center gap-2 cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">call</span>
+                        +1 (555) 019-8472
+                    </p>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-outline-variant text-center max-w-xs">
+            Scan in case of emergency for full medical profile and directives.
+        </p>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md rounded-full border border-white/30 bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl glassmorphism backdrop-saturate-150 shadow-[0_20px_50px_rgba(0,0,0,0.1)] z-50 flex justify-around items-center px-6 py-3">
+<!-- Home -->
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors active:scale-95 duration-300 group">
+<span class="material-symbols-outlined mb-1">grid_view</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Home</span>
+</button>
+<!-- Track -->
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors active:scale-95 duration-300 group">
+<span class="material-symbols-outlined mb-1">distance</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Track</span>
+</button>
+<!-- SOS -->
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors active:scale-95 duration-300 group relative -top-4">
+<div class="bg-error text-on-error p-3 rounded-full shadow-[0_0_20px_rgba(186,26,26,0.4)]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">emergency</span>
+</div>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest mt-2 text-error">SOS</span>
+</button>
+<!-- Chat -->
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors active:scale-95 duration-300 group">
+<span class="material-symbols-outlined mb-1">chat_bubble</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Chat</span>
+</button>
+<!-- Profile (Active) -->
+<button class="flex flex-col items-center justify-center text-green-700 dark:text-green-400 scale-110 transition-transform Active: ring-4 ring-green-500/10 rounded-full transition-all group">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Profile</span>
+</button>
+</nav>
+</body></html>

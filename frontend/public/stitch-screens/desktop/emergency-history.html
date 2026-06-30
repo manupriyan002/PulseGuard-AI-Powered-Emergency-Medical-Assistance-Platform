@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PulseGuard - Emergency History</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "surface-container": "#eeeeec",
+                    "primary-fixed": "#95f8a7",
+                    "on-secondary-fixed": "#092009",
+                    "secondary-fixed-dim": "#b1cfaa",
+                    "on-primary-fixed": "#00210a",
+                    "primary-fixed-dim": "#79db8d",
+                    "on-background": "#1a1c1b",
+                    "outline": "#6f7a6e",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#79db8d",
+                    "on-secondary-fixed-variant": "#344d31",
+                    "tertiary-fixed-dim": "#afceba",
+                    "surface-container-high": "#e8e8e6",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#cdebc5",
+                    "on-surface": "#1a1c1b",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f1f1ef",
+                    "outline-variant": "#becabc",
+                    "surface-container-highest": "#e2e3e1",
+                    "surface-container-low": "#f4f4f2",
+                    "primary": "#00652c",
+                    "on-secondary-container": "#516b4d",
+                    "surface": "#f9f9f7",
+                    "background": "#f9f9f7",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#15803d",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#005323",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#3f493f",
+                    "surface-dim": "#dadad8",
+                    "tertiary-fixed": "#caead6",
+                    "surface-variant": "#e2e3e1",
+                    "surface-tint": "#006d30",
+                    "tertiary-container": "#597665",
+                    "inverse-surface": "#2f3130",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#f9f9f7",
+                    "tertiary": "#415d4d",
+                    "on-tertiary-fixed-variant": "#314d3e",
+                    "on-tertiary-container": "#dcfce7",
+                    "on-tertiary-fixed": "#042014",
+                    "secondary-container": "#cdebc5",
+                    "secondary": "#4b6547",
+                    "on-primary-container": "#d3ffd5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "container-padding": "40px",
+                    "stack-lg": "48px",
+                    "gutter": "24px",
+                    "stack-sm": "12px",
+                    "stack-md": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": [
+                            "Inter"
+                    ],
+                    "label-sm": [
+                            "Inter"
+                    ],
+                    "headline-xl": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-lg": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-sm": [
+                            "13px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-xl": [
+                            "64px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "40px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-background min-h-screen antialiased text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 border-b border-white/20 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl backdrop-blur-md shadow-[0_10px_40px_rgba(0,0,0,0.04)] shadow-2xl shadow-black/5">
+<div class="flex justify-between items-center px-8 py-4 w-full max-w-7xl mx-auto">
+<!-- Brand -->
+<div class="text-xl font-black text-green-800 dark:text-green-500 tracking-tighter">
+                PulseGuard
+            </div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-4">
+<button class="text-green-700 dark:text-green-400 hover:opacity-80 transition-opacity active:scale-95 duration-300">
+<span class="material-symbols-outlined" data-icon="notifications" data-weight="fill" style="font-variation-settings: 'FILL' 1;">notifications</span>
+</button>
+<button class="text-green-700 dark:text-green-400 hover:opacity-80 transition-opacity active:scale-95 duration-300">
+<span class="material-symbols-outlined" data-icon="account_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-48 px-6 md:px-12 max-w-5xl mx-auto relative">
+<!-- Background 3D Asset Accent -->
+<div class="absolute top-20 right-0 -z-10 opacity-40 pointer-events-none mix-blend-multiply">
+<img alt="Decorative Medical Asset" class="w-96 h-96 object-cover rounded-full blur-3xl" data-alt="A highly abstract, soft-focus render of a medical monitoring interface or biological form. The image is extremely blurred to serve as a background texture. It features clinical whites, soft sage greens, and extremely subtle hints of emergency red. The lighting is bright and diffused, creating a serene, high-end medical luxury atmosphere without any sharp details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxPxAzB4KjtYqntM_XoB94GhiUl14Ve6RTizYXRAHgQsYMBa_Yb-oATwklPbBK6LHLtX6F1b0Vk1fmm3Hy8zBAyNOPrboxzKSDGaQgzX4LwPv7SWmcaBL0zWNxrQy1sKPtMVilQt4T-Z3EE0ZxSZ6aDpKqh0ocIqIZQY0qKY4dTD12MdwhaOJIHvhW0Npl_2HA7RQD9TCF6XnbFWilHrNVpz0Ro3MuUOrMUu6FpTLu9jEWn_MMzkk4S1MUExZaQcxO92E_qgI8rEk"/>
+</div>
+<!-- Page Header -->
+<div class="mb-stack-lg flex flex-col gap-stack-sm md:flex-row md:justify-between md:items-end">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-on-background">History</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2 max-w-lg">
+                    A comprehensive timeline of recorded events and automated interventions.
+                </p>
+</div>
+<div class="hidden md:flex bg-surface-container rounded-full p-1 shadow-inner">
+<button class="px-6 py-2 rounded-full bg-surface-container-lowest text-primary font-label-sm text-label-sm shadow-sm">All Events</button>
+<button class="px-6 py-2 rounded-full text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-colors">Critical Only</button>
+</div>
+</div>
+<!-- Timeline Container -->
+<div class="relative before:absolute before:inset-y-0 before:left-[24px] before:w-[2px] before:bg-surface-variant/50 ml-2 md:ml-4 space-y-16">
+<!-- Timeline Item 1: SOS (Critical) -->
+<div class="relative pl-16 md:pl-24">
+<!-- Timeline Node -->
+<div class="absolute left-[8px] top-8 w-8 h-8 rounded-full bg-error-container text-on-error-container flex items-center justify-center shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),0_4px_12px_rgba(186,26,26,0.3)] z-10 border-4 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px]" data-icon="emergency" data-weight="fill" style="font-variation-settings: 'FILL' 1;">emergency</span>
+</div>
+<!-- Matte Card -->
+<div class="bg-surface-container-lowest rounded-xl p-container-padding shadow-[0_40px_80px_rgba(0,0,0,0.03)] flex flex-col gap-stack-md transition-transform hover:-translate-y-1 duration-500">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<span class="bg-error-container text-on-error-container px-3 py-1 rounded-full font-label-sm text-label-sm uppercase tracking-wider">Critical Alert</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Oct 12, 14:03 PM</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-background">SOS Triggered</h2>
+</div>
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-error shadow-inner">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Manual SOS activated via wrist wearable. Emergency contacts notified and two-way audio established within 12 seconds. Paramedics dispatched to primary residence.
+                    </p>
+<div class="pt-4 border-t border-surface-variant/30 flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Resolved: Hospital Admission
+                        </span>
+<button class="bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-full flex items-center gap-2 shadow-[inset_0_1px_2px_rgba(255,255,255,0.3),0_4px_12px_rgba(0,101,44,0.2)] hover:opacity-90 transition-opacity">
+                            View Details
+                            <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Timeline Item 2: Fall Detection (Warning) -->
+<div class="relative pl-16 md:pl-24">
+<!-- Timeline Node -->
+<div class="absolute left-[8px] top-8 w-8 h-8 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center shadow-[inset_0_2px_4px_rgba(255,255,255,0.5),0_4px_12px_rgba(89,118,101,0.2)] z-10 border-4 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px]" data-icon="personal_injury" data-weight="fill" style="font-variation-settings: 'FILL' 1;">personal_injury</span>
+</div>
+<!-- Matte Card -->
+<div class="bg-surface-container-lowest rounded-xl p-container-padding shadow-[0_40px_80px_rgba(0,0,0,0.03)] flex flex-col gap-stack-md transition-transform hover:-translate-y-1 duration-500">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm uppercase tracking-wider">Automated Event</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sep 28, 08:45 AM</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-background">Fall Detected</h2>
+</div>
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-tertiary shadow-inner">
+<span class="material-symbols-outlined" data-icon="monitor_heart">monitor_heart</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Sudden impact detected in the hallway. Pre-alarm sounded for 30 seconds. User dismissed the alert via voice command indicating no injury.
+                    </p>
+<div class="pt-4 border-t border-surface-variant/30 flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="cancel" data-weight="fill" style="font-variation-settings: 'FILL' 1;">cancel</span>
+                            Resolved: Dismissed by User
+                        </span>
+<button class="bg-surface-container text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-full flex items-center gap-2 shadow-sm hover:bg-surface-container-high transition-colors">
+                            View Details
+                        </button>
+</div>
+</div>
+</div>
+<!-- Timeline Item 3: Parameter Anomaly (Info) -->
+<div class="relative pl-16 md:pl-24">
+<!-- Timeline Node -->
+<div class="absolute left-[8px] top-8 w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),0_4px_12px_rgba(205,235,197,0.4)] z-10 border-4 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px]" data-icon="favorite" data-weight="fill" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<!-- Matte Card -->
+<div class="bg-surface-container-lowest rounded-xl p-container-padding shadow-[0_40px_80px_rgba(0,0,0,0.03)] flex flex-col gap-stack-md transition-transform hover:-translate-y-1 duration-500">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm uppercase tracking-wider">Health Alert</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sep 15, 22:10 PM</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-background">Elevated Heart Rate</h2>
+</div>
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-secondary shadow-inner">
+<span class="material-symbols-outlined" data-icon="vital_signs">vital_signs</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Resting heart rate exceeded threshold (115 BPM) for over 10 minutes. Monitored until normalization. No secondary symptoms reported.
+                    </p>
+<div class="pt-4 border-t border-surface-variant/30 flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Resolved: Auto-Normalized
+                        </span>
+<button class="bg-surface-container text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-full flex items-center gap-2 shadow-sm hover:bg-surface-container-high transition-colors">
+                            View Details
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- End of Timeline Marker -->
+<div class="mt-12 flex justify-center">
+<div class="bg-surface-variant/50 w-12 h-1 rounded-full"></div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md rounded-full border border-white/30 bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl glassmorphism backdrop-saturate-150 shadow-[0_20px_50px_rgba(0,0,0,0.1)] z-50">
+<ul class="flex justify-around items-center px-6 py-3 w-full">
+<!-- Inactive: Home -->
+<li>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="grid_view">grid_view</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Home</span>
+</a>
+</li>
+<!-- Inactive: Track -->
+<li>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="distance">distance</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Track</span>
+</a>
+</li>
+<!-- Inactive: SOS -->
+<li>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="emergency">emergency</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">SOS</span>
+</a>
+</li>
+<!-- Inactive: Chat -->
+<li>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Chat</span>
+</a>
+</li>
+<!-- Active: Profile -->
+<li>
+<a class="flex flex-col items-center justify-center text-green-700 dark:text-green-400 scale-110 transition-transform Active: ring-4 ring-green-500/10 rounded-full transition-all hover:opacity-80 transition-opacity active:scale-95 duration-300" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person" data-weight="fill" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Profile</span>
+</a>
+</li>
+</ul>
+</nav>
+</body></html>

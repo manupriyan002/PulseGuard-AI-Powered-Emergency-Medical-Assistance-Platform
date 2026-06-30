@@ -1,0 +1,9 @@
+{
+  "name": "pulseguard-root",
+  "version": "1.0.0",
+  "description": "PulseGuard Runner",
+  "scripts": {
+    "start": "node run.js",
+    "dev": "node run.js"
+  }
+}

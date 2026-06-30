@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PulseGuard - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "surface-container": "#eeeeec",
+                        "primary-fixed": "#95f8a7",
+                        "on-secondary-fixed": "#092009",
+                        "secondary-fixed-dim": "#b1cfaa",
+                        "on-primary-fixed": "#00210a",
+                        "primary-fixed-dim": "#79db8d",
+                        "on-background": "#1a1c1b",
+                        "outline": "#6f7a6e",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#79db8d",
+                        "on-secondary-fixed-variant": "#344d31",
+                        "tertiary-fixed-dim": "#afceba",
+                        "surface-container-high": "#e8e8e6",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#cdebc5",
+                        "on-surface": "#1a1c1b",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f1f1ef",
+                        "outline-variant": "#becabc",
+                        "surface-container-highest": "#e2e3e1",
+                        "surface-container-low": "#f4f4f2",
+                        "primary": "#00652c",
+                        "on-secondary-container": "#516b4d",
+                        "surface": "#f9f9f7",
+                        "background": "#f9f9f7",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#15803d",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#005323",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#3f493f",
+                        "surface-dim": "#dadad8",
+                        "tertiary-fixed": "#caead6",
+                        "surface-variant": "#e2e3e1",
+                        "surface-tint": "#006d30",
+                        "tertiary-container": "#597665",
+                        "inverse-surface": "#2f3130",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f9f9f7",
+                        "tertiary": "#415d4d",
+                        "on-tertiary-fixed-variant": "#314d3e",
+                        "on-tertiary-container": "#dcfce7",
+                        "on-tertiary-fixed": "#042014",
+                        "secondary-container": "#cdebc5",
+                        "secondary": "#4b6547",
+                        "on-primary-container": "#d3ffd5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-padding": "40px",
+                        "stack-lg": "48px",
+                        "gutter": "24px",
+                        "stack-sm": "12px",
+                        "stack-md": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "label-sm": ["13px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #f9f9f7; }
+        .matte-shadow { box-shadow: 0 40px 80px -20px rgba(0,0,0,0.06), inset 0 2px 4px rgba(255,255,255,0.8); }
+        .embossed-inner { box-shadow: inset 0 2px 4px rgba(0,0,0,0.05), 0 1px 0 rgba(255,255,255,0.5); }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md selection:bg-primary-container selection:text-on-primary-container antialiased">
+<!-- TopAppBar Shared Component -->
+<div class="fixed top-0 w-full z-50 border-b border-white/20 backdrop-blur-md shadow-[0_10px_40px_rgba(0,0,0,0.04)] shadow-2xl shadow-black/5 bg-white/60 dark:bg-slate-900/60 transition-all">
+<header class="flex justify-between items-center px-8 py-4 w-full max-w-7xl mx-auto">
+<div class="font-['Inter'] font-bold tracking-tight text-xl font-black text-green-800 dark:text-green-500 tracking-tighter">PulseGuard</div>
+<div class="flex gap-6 items-center">
+<button class="text-slate-400 dark:text-slate-500 hover:opacity-80 transition-opacity active:scale-95 duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<!-- Active Navigation Target -->
+<button class="text-green-700 dark:text-green-400 font-bold hover:opacity-80 transition-opacity active:scale-95 duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</button>
+</div>
+</header>
+</div>
+<!-- Main Content Canvas -->
+<main class="max-w-7xl mx-auto px-6 md:px-container-padding pt-[140px] pb-40">
+<!-- Page Header -->
+<div class="mb-stack-lg pl-2">
+<h1 class="font-headline-xl text-headline-xl text-on-surface">Settings</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-4 max-w-2xl">Manage your preferences, adjust medical monitoring parameters, and review your device synchronization status.</p>
+</div>
+<!-- Split Pane Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+<!-- Left Pane: Navigation Menu -->
+<aside class="hidden md:flex md:col-span-3 flex-col gap-2 sticky top-[160px]">
+<button class="flex items-center gap-4 px-6 py-4 rounded-lg bg-surface-variant text-on-surface w-full text-left transition-all embossed-inner shadow-sm">
+<span class="material-symbols-outlined text-primary">person</span>
+<span class="font-label-sm text-label-sm">Account &amp; Profile</span>
+</button>
+<button class="flex items-center gap-4 px-6 py-4 rounded-lg text-on-surface-variant hover:bg-surface-container w-full text-left transition-all">
+<span class="material-symbols-outlined">lock</span>
+<span class="font-label-sm text-label-sm">Privacy &amp; Security</span>
+</button>
+<button class="flex items-center gap-4 px-6 py-4 rounded-lg text-on-surface-variant hover:bg-surface-container w-full text-left transition-all">
+<span class="material-symbols-outlined">notifications_active</span>
+<span class="font-label-sm text-label-sm">Notifications</span>
+</button>
+<button class="flex items-center gap-4 px-6 py-4 rounded-lg text-on-surface-variant hover:bg-surface-container w-full text-left transition-all">
+<span class="material-symbols-outlined">vital_signs</span>
+<span class="font-label-sm text-label-sm">Device Sync</span>
+</button>
+<button class="flex items-center gap-4 px-6 py-4 rounded-lg text-on-surface-variant hover:bg-surface-container w-full text-left transition-all">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-sm text-label-sm">Help &amp; Support</span>
+</button>
+</aside>
+<!-- Right Pane: Content Cards -->
+<div class="md:col-span-9 flex flex-col gap-stack-lg">
+<!-- Account Category -->
+<section>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6 pl-2">Account</h2>
+<div class="bg-surface-container-lowest rounded-xl p-8 md:p-12 matte-shadow border border-white/50">
+<div class="flex items-center gap-8 border-b border-surface-variant pb-8 mb-8">
+<div class="w-24 h-24 rounded-full overflow-hidden bg-surface-container-high border-4 border-white shadow-sm flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="A high-fidelity 3D rendering of a generic, stylized human avatar bust, resembling premium medical tech software interfaces. The avatar has a smooth, matte white finish with subtle sage green lighting accents indicating a healthy status. The background is completely transparent, allowing the soft, diffuse lighting to define the form. The overall aesthetic is clean, clinical luxury, and reassuring." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMYvAPeObY_qulM99Nxt2gTY3zGQZ5eUYknWUEu4aU0dZgVwMdSHxVI1xo8y22X0jORUbXQL1TkttgbS3dIKKvGxRS1J7bf96QR-SVWKppXiixpsdn3Y0RNXBDN_TKgTzOGw4K7vW9fQwLSeHqQ_RzMqwplDAbJVpZY6rTsI99ZrjNxwiu0bHfHxhSZP3CdHYntzvT7J31Jf98mRzeujsnLi_wzpZKolWDgw6B4N3GkGmcsNxz-WrhXN-AEQd0ZlE_WGgpqVMMBog"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md text-on-surface">Eleanor Vance</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">eleanor.vance@example.com</p>
+</div>
+<button class="px-6 py-3 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-surface-variant transition-colors embossed-inner">
+                                Edit Profile
+                            </button>
+</div>
+<div class="space-y-8">
+<div class="flex flex-col md:flex-row justify-between md:items-center gap-4">
+<div>
+<h4 class="font-body-lg text-body-lg text-on-surface font-semibold">Medical ID Integration</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-lg">Share vital statistics with first responders during an active emergency event.</p>
+</div>
+<button class="w-14 h-8 bg-primary rounded-full relative p-1 shadow-inner flex items-center justify-end transition-all cursor-pointer ring-4 ring-primary/10">
+<div class="w-6 h-6 bg-on-primary rounded-full shadow-sm"></div>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Privacy & Notifications Category -->
+<section>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6 pl-2">Privacy &amp; Monitoring</h2>
+<div class="bg-surface-container-lowest rounded-xl p-8 md:p-12 matte-shadow border border-white/50">
+<div class="flex flex-col md:flex-row justify-between md:items-center gap-4 py-6 border-b border-surface-variant">
+<div>
+<h4 class="font-body-lg text-body-lg text-on-surface font-semibold">Continuous Location Tracking</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-lg">Allow background tracking to establish safe zones and routine paths.</p>
+</div>
+<!-- Inactive Toggle -->
+<button class="w-14 h-8 bg-surface-container-high rounded-full relative p-1 shadow-inner flex items-center justify-start transition-all cursor-pointer border border-outline-variant">
+<div class="w-6 h-6 bg-outline rounded-full shadow-sm"></div>
+</button>
+</div>
+<div class="flex flex-col md:flex-row justify-between md:items-center gap-4 py-6 border-b border-surface-variant">
+<div>
+<h4 class="font-body-lg text-body-lg text-on-surface font-semibold">AI Anomaly Detection</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-lg">Permit the machine learning core to analyze movement patterns for fall detection.</p>
+</div>
+<button class="w-14 h-8 bg-primary rounded-full relative p-1 shadow-inner flex items-center justify-end transition-all cursor-pointer ring-4 ring-primary/10">
+<div class="w-6 h-6 bg-on-primary rounded-full shadow-sm"></div>
+</button>
+</div>
+<div class="flex flex-col md:flex-row justify-between md:items-center gap-4 py-6">
+<div>
+<h4 class="font-body-lg text-body-lg text-error font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+                                    Critical SOS Override
+                                </h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-lg">Emergency alerts will bypass system silences and 'Do Not Disturb' states.</p>
+</div>
+<button class="w-14 h-8 bg-error rounded-full relative p-1 shadow-inner flex items-center justify-end transition-all cursor-pointer ring-4 ring-error/20">
+<div class="w-6 h-6 bg-on-error rounded-full shadow-sm"></div>
+</button>
+</div>
+</div>
+</section>
+<!-- Device Sync Category -->
+<section>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6 pl-2">Paired Hardware</h2>
+<div class="bg-surface-container-lowest rounded-xl p-8 md:p-12 matte-shadow border border-white/50">
+<div class="flex flex-col sm:flex-row items-center sm:items-start gap-8 bg-surface p-6 rounded-lg embossed-inner border border-surface-variant">
+<div class="w-20 h-20 bg-surface-container-lowest rounded-full flex items-center justify-center shadow-sm border border-outline-variant/30 flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-[40px] font-light">watch</span>
+</div>
+<div class="flex-1 text-center sm:text-left">
+<div class="flex flex-col sm:flex-row items-center gap-3 mb-2">
+<h4 class="font-headline-md text-headline-md text-on-surface">Pulse Sentinel Pro</h4>
+<span class="px-4 py-1 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm rounded-full flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Active Monitoring
+                                    </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Firmware v4.2.1 • Last sync: 2 min ago</p>
+<div class="mt-6 flex flex-wrap justify-center sm:justify-start gap-4">
+<div class="flex items-center gap-2 bg-surface-container px-4 py-2 rounded-full text-on-surface">
+<span class="material-symbols-outlined text-[18px]">battery_charging_full</span>
+<span class="font-label-sm text-label-sm">84% Battery</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container px-4 py-2 rounded-full text-on-surface">
+<span class="material-symbols-outlined text-[18px]">ecg</span>
+<span class="font-label-sm text-label-sm">Sensors Online</span>
+</div>
+</div>
+</div>
+<div class="mt-4 sm:mt-0">
+<button class="p-3 bg-surface-container-high rounded-full hover:bg-surface-variant transition-colors group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface">more_vert</span>
+</button>
+</div>
+</div>
+<button class="mt-8 w-full py-4 border-2 border-dashed border-outline-variant rounded-lg text-primary font-label-sm text-label-sm hover:bg-primary/5 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add</span>
+                            Pair New Medical Device
+                        </button>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar Shared Component (Mobile Only) -->
+<nav class="md:hidden bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md rounded-full border border-white/30 glassmorphism backdrop-saturate-150 shadow-[0_20px_50px_rgba(0,0,0,0.1)] z-50 flex justify-around items-center px-6 py-3">
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors gap-1">
+<span class="material-symbols-outlined text-[24px]">grid_view</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors gap-1">
+<span class="material-symbols-outlined text-[24px]">distance</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Track</span>
+</button>
+<!-- SOS Component with specific styling from JSON if applicable, otherwise default inactive -->
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors gap-1">
+<span class="material-symbols-outlined text-[24px]">emergency</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">SOS</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors gap-1">
+<span class="material-symbols-outlined text-[24px]">chat_bubble</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Chat</span>
+</button>
+<!-- Active Navigation -->
+<button class="flex flex-col items-center justify-center text-green-700 dark:text-green-400 scale-110 transition-transform ring-4 ring-green-500/10 rounded-full gap-1 p-2">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Profile</span>
+</button>
+</nav>
+</body></html>

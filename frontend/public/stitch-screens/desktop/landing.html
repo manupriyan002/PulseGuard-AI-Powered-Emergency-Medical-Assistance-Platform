@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PulseGuard - Clinical Luxury</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-error": "#ffffff",
+                "surface-container": "#eeeeec",
+                "primary-fixed": "#95f8a7",
+                "on-secondary-fixed": "#092009",
+                "secondary-fixed-dim": "#b1cfaa",
+                "on-primary-fixed": "#00210a",
+                "primary-fixed-dim": "#79db8d",
+                "on-background": "#1a1c1b",
+                "outline": "#6f7a6e",
+                "error-container": "#ffdad6",
+                "inverse-primary": "#79db8d",
+                "on-secondary-fixed-variant": "#344d31",
+                "tertiary-fixed-dim": "#afceba",
+                "surface-container-high": "#e8e8e6",
+                "on-tertiary": "#ffffff",
+                "secondary-fixed": "#cdebc5",
+                "on-surface": "#1a1c1b",
+                "on-error-container": "#93000a",
+                "inverse-on-surface": "#f1f1ef",
+                "outline-variant": "#becabc",
+                "surface-container-highest": "#e2e3e1",
+                "surface-container-low": "#f4f4f2",
+                "primary": "#00652c",
+                "on-secondary-container": "#516b4d",
+                "surface": "#f9f9f7",
+                "background": "#f9f9f7",
+                "on-primary": "#ffffff",
+                "primary-container": "#15803d",
+                "error": "#ba1a1a",
+                "on-primary-fixed-variant": "#005323",
+                "on-secondary": "#ffffff",
+                "on-surface-variant": "#3f493f",
+                "surface-dim": "#dadad8",
+                "tertiary-fixed": "#caead6",
+                "surface-variant": "#e2e3e1",
+                "surface-tint": "#006d30",
+                "tertiary-container": "#597665",
+                "inverse-surface": "#2f3130",
+                "surface-container-lowest": "#ffffff",
+                "surface-bright": "#f9f9f7",
+                "tertiary": "#415d4d",
+                "on-tertiary-fixed-variant": "#314d3e",
+                "on-tertiary-container": "#dcfce7",
+                "on-tertiary-fixed": "#042014",
+                "secondary-container": "#cdebc5",
+                "secondary": "#4b6547",
+                "on-primary-container": "#d3ffd5"
+        },
+        "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "unit": "8px",
+                "container-padding": "40px",
+                "stack-lg": "48px",
+                "gutter": "24px",
+                "stack-sm": "12px",
+                "stack-md": "24px"
+        },
+        "fontFamily": {
+                "headline-md": ["Inter"],
+                "label-sm": ["Inter"],
+                "headline-xl": ["Inter"],
+                "body-md": ["Inter"],
+                "body-lg": ["Inter"],
+                "headline-lg": ["Inter"]
+        },
+        "fontSize": {
+                "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                "label-sm": ["13px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .icon-fill {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .soft-shadow {
+    box-shadow: 0 40px 60px -15px rgba(0,0,0,0.05);
+  }
+  .inner-emboss {
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.8), inset 0 -2px 4px rgba(0,0,0,0.05);
+  }
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<nav class="bg-surface-container-lowest/60 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-surface-container-high shadow-[0_10px_40px_rgba(0,0,0,0.04)] transition-all">
+<div class="flex justify-between items-center px-8 py-4 w-full max-w-[1440px] mx-auto">
+<div class="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined icon-fill text-primary text-[28px]">vital_signs</span>
+<span class="text-xl font-black text-primary tracking-tighter">PulseGuard</span>
+</div>
+<div class="hidden lg:flex items-center gap-8">
+<a class="font-label-sm text-label-sm text-primary font-bold active:scale-95 duration-300" href="#">Home</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-300" href="#">Features</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-300" href="#">How It Works</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-300" href="#">About</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-300" href="#">Testimonials</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-300" href="#">Contact</a>
+</div>
+<div class="hidden md:flex items-center gap-4">
+<button class="font-label-sm text-label-sm text-on-surface-variant px-6 py-2.5 rounded-full hover:bg-surface-container-high transition-colors">Download App</button>
+<button class="font-label-sm text-label-sm text-on-primary bg-primary px-6 py-2.5 rounded-full shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity inner-emboss flex items-center gap-2">
+        Get Started
+        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-[140px] pb-stack-lg px-container-padding min-h-screen flex items-center relative overflow-hidden">
+<div class="absolute top-1/2 left-[60%] -translate-y-1/2 -translate-x-1/2 z-0 pointer-events-none opacity-[0.03] select-none mix-blend-multiply">
+<span class="text-[400px] font-black tracking-tighter leading-none text-on-background">AI</span>
+</div>
+<div class="max-w-[1440px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center relative z-10">
+<div class="lg:col-span-5 flex flex-col items-start pr-0 lg:pr-8">
+<div class="bg-tertiary-container/10 text-tertiary font-label-sm text-label-sm px-4 py-1.5 rounded-full mb-stack-md flex items-center gap-2 border border-tertiary-container/20">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+        Active Monitoring 24/7
+      </div>
+<h1 class="font-headline-xl text-headline-xl text-on-background mb-stack-md leading-[1.1]">
+        When Every Second Matters, <br/>
+<span class="text-primary relative inline-block">
+          We’re Already <br/> One Step Ahead.
+          <svg class="absolute -bottom-2 left-0 w-full h-3 text-secondary-container -z-10" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0,10 Q50,20 100,10 L100,20 L0,20 Z" fill="currentColor"></path>
+</svg>
+</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg max-w-lg">
+        PulseGuard uses AI to assess, alert, and assist in real-time. Experience clinical-grade peace of mind with our matte-finish wearable and intuitive triage platform.
+      </p>
+<div class="flex flex-wrap items-center gap-4">
+<button class="font-label-sm text-label-sm text-on-primary bg-primary px-8 py-4 rounded-full shadow-[0_15px_30px_rgba(0,101,44,0.2)] hover:-translate-y-1 transition-all inner-emboss flex items-center gap-3">
+          Get Started Free
+          <span class="bg-on-primary/20 rounded-full p-1 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">arrow_right_alt</span>
+</span>
+</button>
+<button class="font-label-sm text-label-sm text-on-background bg-surface-container-lowest px-8 py-4 rounded-full border border-outline-variant shadow-sm hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">play_circle</span>
+          Watch Demo
+        </button>
+</div>
+</div>
+<div class="lg:col-span-7 relative h-[600px] w-full mt-12 lg:mt-0">
+<div class="absolute inset-0 bg-surface-container-lowest rounded-[40px] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] border border-surface-container-lowest overflow-hidden flex items-center justify-center">
+<img alt="3D AI Brain Render" class="w-full h-full object-cover scale-110 object-center mix-blend-luminosity opacity-90" data-alt="A highly detailed, 3D glossy render of a futuristic human brain intertwined with glowing fiber optic neural pathways. The asset is placed against a pristine, matte white background typical of clinical luxury design. Soft, diffused, high-key lighting creates deep, gentle shadows, giving the object a palpable, tactile depth. The color palette emphasizes sterile whites, soft medical greens, and subtle metallic silver accents, conveying a mood of advanced AI medical intelligence and calm authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJGGGqiUuMdnrREWWit9o4DS1zzpCEPN5gqIm2tdpTf3JjuWsBr-vq5C9HnwWfNB7a1sm6AriwRGveVyr6MoYb-Eb_Wt9foeCMyjNhHC0kHafD-hvM4cBSaqmMvqBX0V61nmHVjtAy3YH7RHqjuQSEQ-uV-sKYCkXDCvbT0Z6DW63SuOUsBhbR-Rkmjg3T_MCl2Ww8JrK6OGc0P0Wl29MLrlzDknW6FTc3cDqhRbLY4qWfkVc4Sl3if6pI7bRTXIOHRU5igHg2QLo"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-surface-container-lowest/80 via-transparent to-surface-container-lowest/40"></div>
+</div>
+<div class="absolute bottom-12 -left-12 bg-surface-container-lowest p-5 rounded-[24px] soft-shadow border border-surface-container-highest/50 flex items-center gap-4 animate-[bounce_4s_infinite_ease-in-out]">
+<div class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center inner-emboss">
+<span class="material-symbols-outlined text-error icon-fill">monitor_heart</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Emergencies Handled</p>
+<p class="font-headline-md text-headline-md text-on-background">24,389<span class="text-primary">+</span></p>
+</div>
+</div>
+<div class="absolute top-16 -right-8 flex flex-col gap-3">
+<div class="bg-surface-container-lowest/90 backdrop-blur-md px-5 py-3 rounded-full soft-shadow border border-surface-container-highest/50 flex items-center gap-3 animate-[bounce_5s_infinite_ease-in-out_0.5s]">
+<span class="material-symbols-outlined text-primary text-[20px]">smart_toy</span>
+<span class="font-label-sm text-label-sm text-on-background">AI Triage</span>
+</div>
+<div class="bg-surface-container-lowest/90 backdrop-blur-md px-5 py-3 rounded-full soft-shadow border border-surface-container-highest/50 flex items-center gap-3 animate-[bounce_4.5s_infinite_ease-in-out_1s]">
+<span class="material-symbols-outlined text-error text-[20px]">emergency</span>
+<span class="font-label-sm text-label-sm text-on-background">SOS Alert</span>
+</div>
+<div class="bg-surface-container-lowest/90 backdrop-blur-md px-5 py-3 rounded-full soft-shadow border border-surface-container-highest/50 flex items-center gap-3 animate-[bounce_5.5s_infinite_ease-in-out_1.5s]">
+<span class="material-symbols-outlined text-secondary text-[20px]">location_on</span>
+<span class="font-label-sm text-label-sm text-on-background">Live Tracking</span>
+</div>
+<div class="bg-surface-container-lowest/90 backdrop-blur-md px-5 py-3 rounded-full soft-shadow border border-surface-container-highest/50 flex items-center gap-3 animate-[bounce_6s_infinite_ease-in-out_2s]">
+<span class="material-symbols-outlined text-tertiary text-[20px]">badge</span>
+<span class="font-label-sm text-label-sm text-on-background">Medical ID</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<section class="py-stack-lg px-container-padding bg-surface-container-low relative z-20">
+<div class="max-w-[1440px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-lowest p-8 rounded-lg soft-shadow hover:-translate-y-2 transition-transform duration-500">
+<div class="w-14 h-14 rounded-[16px] bg-primary-container/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-[32px]">speed</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-3">Instant Assessment</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Our AI evaluates vital signs and environmental context within milliseconds, ensuring appropriate response protocols are triggered immediately.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-lg soft-shadow hover:-translate-y-2 transition-transform duration-500">
+<div class="w-14 h-14 rounded-[16px] bg-secondary-container/30 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-secondary text-[32px]">verified_user</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-3">Clinical Precision</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Built alongside top emergency responders, the PulseGuard algorithm eliminates false positives while maintaining hyper-sensitivity to true crises.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-lg soft-shadow hover:-translate-y-2 transition-transform duration-500">
+<div class="w-14 h-14 rounded-[16px] bg-tertiary-container/20 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-tertiary text-[32px]">contact_support</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-3">Automated Assistance</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">From dispatching local EMS to notifying designated emergency contacts, the system handles the logistics so you can focus on safety.</p>
+</div>
+</div>
+</div>
+</section>
+</body></html>

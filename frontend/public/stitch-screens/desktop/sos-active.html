@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PulseGuard - Active SOS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error": "#ffffff",
+                      "surface-container": "#eeeeec",
+                      "primary-fixed": "#95f8a7",
+                      "on-secondary-fixed": "#092009",
+                      "secondary-fixed-dim": "#b1cfaa",
+                      "on-primary-fixed": "#00210a",
+                      "primary-fixed-dim": "#79db8d",
+                      "on-background": "#1a1c1b",
+                      "outline": "#6f7a6e",
+                      "error-container": "#ffdad6",
+                      "inverse-primary": "#79db8d",
+                      "on-secondary-fixed-variant": "#344d31",
+                      "tertiary-fixed-dim": "#afceba",
+                      "surface-container-high": "#e8e8e6",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed": "#cdebc5",
+                      "on-surface": "#1a1c1b",
+                      "on-error-container": "#93000a",
+                      "inverse-on-surface": "#f1f1ef",
+                      "outline-variant": "#becabc",
+                      "surface-container-highest": "#e2e3e1",
+                      "surface-container-low": "#f4f4f2",
+                      "primary": "#00652c",
+                      "on-secondary-container": "#516b4d",
+                      "surface": "#f9f9f7",
+                      "background": "#f9f9f7",
+                      "on-primary": "#ffffff",
+                      "primary-container": "#15803d",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed-variant": "#005323",
+                      "on-secondary": "#ffffff",
+                      "on-surface-variant": "#3f493f",
+                      "surface-dim": "#dadad8",
+                      "tertiary-fixed": "#caead6",
+                      "surface-variant": "#e2e3e1",
+                      "surface-tint": "#006d30",
+                      "tertiary-container": "#597665",
+                      "inverse-surface": "#2f3130",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#f9f9f7",
+                      "tertiary": "#415d4d",
+                      "on-tertiary-fixed-variant": "#314d3e",
+                      "on-tertiary-container": "#dcfce7",
+                      "on-tertiary-fixed": "#042014",
+                      "secondary-container": "#cdebc5",
+                      "secondary": "#4b6547",
+                      "on-primary-container": "#d3ffd5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "container-padding": "40px",
+                      "stack-lg": "48px",
+                      "gutter": "24px",
+                      "stack-sm": "12px",
+                      "stack-md": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "headline-xl": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-xl": [
+                              "64px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen relative font-body-md overflow-x-hidden">
+<div class="fixed inset-0 z-0 bg-surface-variant">
+<img alt="Map Location" class="w-full h-full object-cover opacity-50 grayscale mix-blend-multiply" data-alt="A highly detailed, desaturated satellite map view of an urban area, rendered with a pristine light-mode aesthetic. The map features soft, muted greys and subtle white road networks, creating a calm, minimalist backdrop. The overall mood is clinical and navigational, with no distracting bright colors, emphasizing vast whitespace and high-end technological utility. The lighting is diffused, giving the terrain a flat, matte appearance." data-location="San Francisco" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJH6yQ6e97hkljSrr753dN2YVwt0nmNqtzp7AZjWBUxdC40fJgiBPVkTeVD9YW-ijxjPAmec4Omjz0YkIdInM9CybtObkME1JTMthgGagWSGiW4ecxqNEP7RruuM8WkxiB-HjL-NYOlyWDGEjRL3ZV8Ikt_XX0DZs7xBpCCNaw7KiwIhZ4U0x4iG-sZkXARTjovoo_0B6As4BUmLJ6_eJoo-aHAWt6VzhUMed-PQod6dCZUVxB3gxkl7aOK7l3ZB4iwyEpQWOxeR8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent"></div>
+</div>
+<header class="fixed top-0 w-full z-50 border-b border-white/20 bg-white/60 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.04)] hidden md:block">
+<div class="flex justify-between items-center px-8 py-4 w-full max-w-7xl mx-auto">
+<div class="font-['Inter'] font-bold tracking-tight">
+<span class="text-xl font-black text-green-800 tracking-tighter">PulseGuard</span>
+</div>
+<div class="flex gap-gutter items-center">
+<span class="font-label-sm text-label-sm text-slate-400">Home</span>
+<span class="font-label-sm text-label-sm text-slate-400">Track</span>
+<span class="font-label-sm text-label-sm text-green-700 font-bold bg-error-container/20 px-4 py-2 rounded-full text-error">SOS</span>
+<span class="font-label-sm text-label-sm text-slate-400">Chat</span>
+<span class="font-label-sm text-label-sm text-slate-400">Profile</span>
+</div>
+<div class="flex gap-4 items-center text-green-700">
+<span class="material-symbols-outlined hover:opacity-80 transition-opacity active:scale-95 duration-300 cursor-pointer">notifications</span>
+<span class="material-symbols-outlined hover:opacity-80 transition-opacity active:scale-95 duration-300 cursor-pointer">account_circle</span>
+</div>
+</div>
+</header>
+<main class="relative z-10 w-full min-h-screen pt-32 pb-48 px-container-padding flex flex-col items-center gap-stack-lg max-w-7xl mx-auto">
+<div class="w-[340px] h-[340px] rounded-full bg-surface-container-lowest flex flex-col items-center justify-center relative shadow-[0_60px_100px_rgba(186,26,26,0.15)] shrink-0">
+<div class="absolute inset-0 rounded-full border-[20px] border-error-container opacity-40"></div>
+<div class="absolute inset-6 rounded-full border border-error opacity-20"></div>
+<span class="material-symbols-outlined text-[56px] text-error mb-stack-sm" style="font-variation-settings: 'FILL' 1;">emergency</span>
+<h1 class="font-headline-xl text-headline-xl text-error tracking-tighter">04:22</h1>
+<div class="bg-error-container px-6 py-2 rounded-full mt-stack-sm flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<p class="font-label-sm text-label-sm text-error uppercase tracking-widest">Active Tracking</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter w-full max-w-5xl">
+<div class="md:col-span-8 bg-surface-container-lowest rounded-xl p-8 shadow-[0_40px_60px_rgba(0,0,0,0.04)] flex flex-col justify-between border border-white/50 relative overflow-hidden">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-primary-fixed/20 rounded-full blur-[60px]"></div>
+<div class="flex justify-between items-start relative z-10 mb-stack-md">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Help is on the way</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Emergency Medical Services have been dispatched to your exact location.</p>
+</div>
+<div class="w-16 h-16 rounded-full bg-primary-fixed-dim/20 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">ambulance</span>
+</div>
+</div>
+<div class="flex items-end justify-between relative z-10 border-t border-outline-variant/30 pt-6 mt-auto">
+<div>
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-1">Estimated Arrival</p>
+<p class="font-headline-lg text-headline-lg text-primary tracking-tight">3 mins</p>
+</div>
+<div class="flex flex-col items-end">
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-1">Distance</p>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">1.2 miles</p>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 bg-surface-container-lowest rounded-xl p-8 shadow-[0_40px_60px_rgba(0,0,0,0.04)] flex flex-col gap-stack-sm border border-white/50">
+<h3 class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2">Emergency Contacts</h3>
+<div class="flex items-center gap-4 bg-surface px-4 py-3 rounded-lg border border-outline-variant/20">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface font-semibold">Sarah Jenkins</p>
+<p class="font-label-sm text-label-sm text-primary">Notified &amp; Tracking</p>
+</div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex items-center gap-4 bg-surface px-4 py-3 rounded-lg border border-outline-variant/20">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface font-semibold">Dr. Robert Chen</p>
+<p class="font-label-sm text-label-sm text-outline">Attempting to contact...</p>
+</div>
+<span class="material-symbols-outlined text-outline">pending</span>
+</div>
+</div>
+<div class="md:col-span-12 bg-surface-container-lowest rounded-xl p-6 shadow-[0_40px_60px_rgba(0,0,0,0.04)] flex items-center gap-6 border border-white/50">
+<div class="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-on-surface shrink-0 border border-outline-variant/30">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">my_location</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-1">Transmitting Location Data</p>
+<p class="font-body-md text-body-md text-on-surface font-semibold">1450 Wellness Blvd, Floor 4, Suite 402, San Francisco, CA</p>
+</div>
+<div class="ml-auto bg-surface-variant px-4 py-2 rounded-full">
+<p class="font-label-sm text-label-sm text-on-surface-variant">GPS: 37.7749° N, 122.4194° W</p>
+</div>
+</div>
+</div>
+</main>
+<nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md rounded-full border border-white/30 bg-white/70 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] z-50 glassmorphism backdrop-saturate-150">
+<div class="flex justify-around items-center px-6 py-3">
+<div class="flex flex-col items-center justify-center text-slate-400 hover:text-green-600 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined mb-1 group-active:scale-95 duration-300">grid_view</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 hover:text-green-600 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined mb-1 group-active:scale-95 duration-300">distance</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Track</span>
+</div>
+<div class="flex flex-col items-center justify-center text-green-700 scale-110 transition-transform cursor-pointer relative">
+<div class="absolute inset-0 ring-4 ring-green-500/10 rounded-full scale-150"></div>
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">emergency</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">SOS</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 hover:text-green-600 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined mb-1 group-active:scale-95 duration-300">chat_bubble</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Chat</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 hover:text-green-600 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined mb-1 group-active:scale-95 duration-300">person</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Profile</span>
+</div>
+</div>
+</nav>
+</body></html>

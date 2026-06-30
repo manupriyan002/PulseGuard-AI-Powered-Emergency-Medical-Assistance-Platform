@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PulseGuard Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "surface-container": "#eeeeec",
+                        "primary-fixed": "#95f8a7",
+                        "on-secondary-fixed": "#092009",
+                        "secondary-fixed-dim": "#b1cfaa",
+                        "on-primary-fixed": "#00210a",
+                        "primary-fixed-dim": "#79db8d",
+                        "on-background": "#1a1c1b",
+                        "outline": "#6f7a6e",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#79db8d",
+                        "on-secondary-fixed-variant": "#344d31",
+                        "tertiary-fixed-dim": "#afceba",
+                        "surface-container-high": "#e8e8e6",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#cdebc5",
+                        "on-surface": "#1a1c1b",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f1f1ef",
+                        "outline-variant": "#becabc",
+                        "surface-container-highest": "#e2e3e1",
+                        "surface-container-low": "#f4f4f2",
+                        "primary": "#00652c",
+                        "on-secondary-container": "#516b4d",
+                        "surface": "#f9f9f7",
+                        "background": "#f9f9f7",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#15803d",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#005323",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#3f493f",
+                        "surface-dim": "#dadad8",
+                        "tertiary-fixed": "#caead6",
+                        "surface-variant": "#e2e3e1",
+                        "surface-tint": "#006d30",
+                        "tertiary-container": "#597665",
+                        "inverse-surface": "#2f3130",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f9f9f7",
+                        "tertiary": "#415d4d",
+                        "on-tertiary-fixed-variant": "#314d3e",
+                        "on-tertiary-container": "#dcfce7",
+                        "on-tertiary-fixed": "#042014",
+                        "secondary-container": "#cdebc5",
+                        "secondary": "#4b6547",
+                        "on-primary-container": "#d3ffd5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-padding": "40px",
+                        "stack-lg": "48px",
+                        "gutter": "24px",
+                        "stack-sm": "12px",
+                        "stack-md": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "label-sm": ["13px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md text-body-md overflow-x-hidden">
+<header class="fixed top-0 w-full z-50 border-b border-white/20 backdrop-blur-md shadow-[0_10px_40px_rgba(0,0,0,0.04)] bg-white/60 dark:bg-slate-900/60 shadow-2xl shadow-black/5">
+<div class="flex justify-between items-center px-8 py-4 w-full max-w-7xl mx-auto">
+<div class="text-xl font-black text-green-800 dark:text-green-500 tracking-tighter hover:opacity-80 transition-opacity active:scale-95 duration-300">PulseGuard</div>
+<div class="hidden"></div>
+<div class="flex items-center gap-gutter">
+<span class="material-symbols-outlined text-green-700 dark:text-green-400 hover:opacity-80 transition-opacity active:scale-95 duration-300 cursor-pointer" style="font-variation-settings: 'FILL' 0;">notifications</span>
+<span class="material-symbols-outlined text-green-700 dark:text-green-400 hover:opacity-80 transition-opacity active:scale-95 duration-300 cursor-pointer" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</div>
+</div>
+</header>
+<div class="flex flex-1 pt-24 pb-32 md:pb-8 w-full max-w-7xl mx-auto px-gutter gap-gutter">
+<aside class="hidden md:flex flex-col w-64 shrink-0 pt-stack-md gap-stack-sm">
+<div class="flex items-center gap-unit p-unit rounded-DEFAULT bg-primary-container text-on-primary-container cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</div>
+<div class="flex items-center gap-unit p-unit rounded-DEFAULT text-on-surface-variant hover:bg-surface-container cursor-pointer transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">health_and_safety</span>
+<span class="font-label-sm text-label-sm">AI Triage</span>
+</div>
+<div class="flex items-center gap-unit p-unit rounded-DEFAULT text-on-surface-variant hover:bg-surface-container cursor-pointer transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">distance</span>
+<span class="font-label-sm text-label-sm">Live Tracking</span>
+</div>
+<div class="flex items-center gap-unit p-unit rounded-DEFAULT text-on-surface-variant hover:bg-surface-container cursor-pointer transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">chat_bubble</span>
+<span class="font-label-sm text-label-sm">Messages</span>
+</div>
+<div class="flex items-center gap-unit p-unit rounded-DEFAULT text-on-surface-variant hover:bg-surface-container cursor-pointer transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</aside>
+<main class="flex-1 flex flex-col gap-stack-lg min-w-0">
+<div class="flex flex-col gap-unit">
+<h1 class="font-headline-lg text-headline-lg text-primary">Good Morning, Sarah</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Your vitals are stable. Monitoring is active.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<div class="lg:col-span-1 bg-surface-container-lowest rounded-xl shadow-xl flex flex-col items-center justify-center p-container-padding relative overflow-hidden group cursor-pointer hover:scale-[1.02] transition-transform duration-300">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-error-container opacity-20 pointer-events-none"></div>
+<div class="w-48 h-48 rounded-full bg-error flex items-center justify-center shadow-[0_0_60px_rgba(186,26,26,0.6)] ring-8 ring-error-container/50 relative z-10 group-active:scale-95 transition-transform duration-300">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-on-error text-6xl mb-2" style="font-variation-settings: 'FILL' 1;">emergency</span>
+<span class="font-headline-md text-headline-md text-on-error uppercase tracking-widest text-center">Tap to<br/>Alert</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-lowest rounded-lg shadow-lg p-stack-md flex flex-col justify-between">
+<div class="flex justify-between items-start mb-stack-sm">
+<div class="p-unit bg-tertiary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary-fixed px-3 py-1 rounded-full">Live</span>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg text-on-surface">72 <span class="font-body-md text-body-md text-on-surface-variant">bpm</span></div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">Heart Rate</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg shadow-lg p-stack-md flex flex-col justify-between">
+<div class="flex justify-between items-start mb-stack-sm">
+<div class="p-unit bg-primary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">directions_walk</span>
+</div>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg text-on-surface">4,230</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">Steps Today</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg shadow-lg p-stack-md flex flex-col justify-between">
+<div class="flex justify-between items-start mb-stack-sm">
+<div class="p-unit bg-secondary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">bedtime</span>
+</div>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg text-on-surface">7h 12m</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">Sleep Duration</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-surface-container-lowest rounded-xl shadow-lg p-stack-md flex items-center gap-stack-sm cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="w-16 h-16 rounded-DEFAULT bg-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary-fixed text-3xl" style="font-variation-settings: 'FILL' 0;">robot_2</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">AI Triage</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Symptom checker &amp; guidance</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-lg p-stack-md flex items-center gap-stack-sm cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="w-16 h-16 rounded-DEFAULT bg-secondary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-secondary-fixed text-3xl" style="font-variation-settings: 'FILL' 0;">local_hospital</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">Hospital Finder</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Locate nearest care facilities</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-lg p-container-padding flex flex-col gap-stack-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Emergency Contacts</h2>
+<div class="flex gap-gutter overflow-x-auto pb-4">
+<div class="flex flex-col items-center gap-unit min-w-[80px]">
+<img alt="Avatar" class="w-16 h-16 rounded-full object-cover border-2 border-primary-fixed" data-alt="A professional headshot of a young woman with a reassuring smile, set against a bright, modern, minimalist white background. The lighting is soft, high-key, and creates a sense of clinical luxury and calm trust, fitting a premium health app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3YHpLcsJJOftapWTsbr9vnEN2mO8jb9Zkt09HTd8nG9R_pSsFHLKAZ2TN6l59X2ct9ace2E10iM81nFta7vrrAzzC1ISTzu4Vm6cdYhrdN0lJ3XquwYgaaA03zpbgRXqrMXSge0avGuEaYLLCYrJzkWJu8vHUUzGFLj_6KwlPtDf0yB4Sy3t0gYmKlMd7Hy2w_iY4C3MdhhTjorZVCB1mNtoHqPS4H0hnP1edzES6AEVcgBuNquQgu_00yjKerbKA6J9PrqduU0I"/>
+<span class="font-label-sm text-label-sm text-on-surface">Mom</span>
+</div>
+<div class="flex flex-col items-center gap-unit min-w-[80px]">
+<img alt="Avatar" class="w-16 h-16 rounded-full object-cover border-2 border-surface-variant" data-alt="A portrait of a mature man with a calm, dependable expression, illuminated by gentle, diffused studio lighting. The background is a clean, sterile soft sage green, conveying a matte minimalist aesthetic and professional safety within a medical tech context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnk4CZLFLH8xymNwm-txGWvwxvqKTTWJ1t3NWmX9EmdNv9TDpzlHSpp5e_byAAeXI8_xk5WIC8o7nDGBpEbbwUkpJEBZL28vJpUBjps7s_WozjR5kuoc0o1qKPegujE9YjC_uJ-yt1Z2gPckCVUDHZk6SMT_GfFcBbdbRtBBRmlutcxiV7rTijjbhDeXeEcDUYbMHC2I1c4biQC6k7FDy2oIOMrIl0QIhRghgNkwFbkJ-Y97L-t9wlutyq2SbO5uTRmDlM-wehlVs"/>
+<span class="font-label-sm text-label-sm text-on-surface">Dr. Smith</span>
+</div>
+<div class="flex flex-col items-center justify-center gap-unit min-w-[80px]">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center cursor-pointer hover:bg-surface-variant transition-colors border-2 border-dashed border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 0;">add</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Add</span>
+</div>
+</div>
+</div>
+</main>
+</div>
+<nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md rounded-full border border-white/30 glassmorphism backdrop-saturate-150 shadow-[0_20px_50px_rgba(0,0,0,0.1)] bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl fixed bottom-8 left-0 right-0 z-50 flex justify-around items-center px-6 py-3">
+<div class="flex flex-col items-center justify-center text-green-700 dark:text-green-400 scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">distance</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest mt-1">Track</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 0;">emergency</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest mt-1 text-error">SOS</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">chat_bubble</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest mt-1">Chat</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

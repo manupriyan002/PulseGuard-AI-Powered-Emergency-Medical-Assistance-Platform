@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PulseGuard - AI Triage</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error": "#ffffff",
+                      "surface-container": "#eeeeec",
+                      "primary-fixed": "#95f8a7",
+                      "on-secondary-fixed": "#092009",
+                      "secondary-fixed-dim": "#b1cfaa",
+                      "on-primary-fixed": "#00210a",
+                      "primary-fixed-dim": "#79db8d",
+                      "on-background": "#1a1c1b",
+                      "outline": "#6f7a6e",
+                      "error-container": "#ffdad6",
+                      "inverse-primary": "#79db8d",
+                      "on-secondary-fixed-variant": "#344d31",
+                      "tertiary-fixed-dim": "#afceba",
+                      "surface-container-high": "#e8e8e6",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed": "#cdebc5",
+                      "on-surface": "#1a1c1b",
+                      "on-error-container": "#93000a",
+                      "inverse-on-surface": "#f1f1ef",
+                      "outline-variant": "#becabc",
+                      "surface-container-highest": "#e2e3e1",
+                      "surface-container-low": "#f4f4f2",
+                      "primary": "#00652c",
+                      "on-secondary-container": "#516b4d",
+                      "surface": "#f9f9f7",
+                      "background": "#f9f9f7",
+                      "on-primary": "#ffffff",
+                      "primary-container": "#15803d",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed-variant": "#005323",
+                      "on-secondary": "#ffffff",
+                      "on-surface-variant": "#3f493f",
+                      "surface-dim": "#dadad8",
+                      "tertiary-fixed": "#caead6",
+                      "surface-variant": "#e2e3e1",
+                      "surface-tint": "#006d30",
+                      "tertiary-container": "#597665",
+                      "inverse-surface": "#2f3130",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#f9f9f7",
+                      "tertiary": "#415d4d",
+                      "on-tertiary-fixed-variant": "#314d3e",
+                      "on-tertiary-container": "#dcfce7",
+                      "on-tertiary-fixed": "#042014",
+                      "secondary-container": "#cdebc5",
+                      "secondary": "#4b6547",
+                      "on-primary-container": "#d3ffd5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "container-padding": "40px",
+                      "stack-lg": "48px",
+                      "gutter": "24px",
+                      "stack-sm": "12px",
+                      "stack-md": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                      "label-sm": ["13px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                      "headline-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                      "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                      "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                      "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen relative pb-[160px] pt-[100px] antialiased overflow-x-hidden selection:bg-primary/20 selection:text-primary">
+<!-- Subtle 3D Medical Asset Background -->
+<div class="fixed top-[20%] right-[-10%] w-[600px] h-[600px] opacity-10 pointer-events-none mix-blend-multiply blur-sm" data-alt="A highly detailed, hyper-realistic 3D render of an abstract medical diagnostic form, resembling smooth biological structures mixed with high-tech sensors. The object is rendered with a pristine, glossy white and soft sage green material, sitting in a bright, clinical, light-mode environment. Soft, diffused lighting creates a sense of high-end medical luxury, depth, and technological advancement." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBBHIDIHxtwxwMu62ocu5YIRPhzbnrlZSAbzls5oLy-gRWHJlCI4_EW8zNM6OWpA5mgJu00AlQdCHFDfFTdnAjYP7wYrsPgILm56uU58KqXDw5wskLsahugmELG4cIr9wFM-9Amm9XGz1KDwmGgr4bMBtb9hiJr50tdq602ke73-9GBtU9aZ778-vGB_UeGleKidG1r3qIx3NWJP5IBlx9HylTuMiRsijSNP23ZjgevS9uO85iNatbQZzpceoBUv4AdJ0HlCZhWul8'); background-size: cover; background-position: center;">
+</div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 border-b border-white/20 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl backdrop-blur-md shadow-[0_10px_40px_rgba(0,0,0,0.04)] shadow-2xl shadow-black/5 flex justify-between items-center px-8 py-4 w-full max-w-7xl mx-auto">
+<div class="text-xl font-black text-green-800 dark:text-green-500 tracking-tighter">
+            PulseGuard
+        </div>
+<div class="hidden">
+<!-- Search bar hidden per JSON -->
+</div>
+<div class="flex gap-4 items-center">
+<button class="text-green-700 dark:text-green-400 font-['Inter'] font-bold tracking-tight hover:opacity-80 transition-opacity active:scale-95 duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-green-700 dark:text-green-400 font-['Inter'] font-bold tracking-tight hover:opacity-80 transition-opacity active:scale-95 duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Risk Score Indicator -->
+<div class="px-container-padding max-w-4xl mx-auto mb-stack-lg relative z-10">
+<div class="bg-surface rounded-DEFAULT p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-surface-variant/50">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-[#FFF4F2] flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-[#D93F2E]" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div>
+<h2 class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Triage Assessment</h2>
+<p class="font-headline-md text-headline-md text-on-surface">Medium Risk Level</p>
+</div>
+</div>
+<div class="bg-[#FFF4F2] text-[#D93F2E] px-4 py-2 rounded-full font-label-sm text-label-sm">
+                Recommend Hospital Visit
+            </div>
+</div>
+</div>
+<!-- Main Chat Interface -->
+<main class="px-container-padding max-w-4xl mx-auto flex flex-col gap-stack-md relative z-10">
+<!-- AI Greeting -->
+<div class="flex gap-4 max-w-[85%]">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0 shadow-sm border border-outline-variant/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">vital_signs</span>
+</div>
+<div class="bg-surface rounded-xl p-6 shadow-[0_30px_60px_rgba(0,0,0,0.04)] rounded-tl-sm border border-white/50">
+<p class="font-body-lg text-body-lg text-on-surface">Hello. I am analyzing your connected vital signs. Your heart rate is slightly elevated at 98 BPM. Please describe the discomfort you are experiencing in your chest.</p>
+</div>
+</div>
+<!-- User Response -->
+<div class="flex gap-4 max-w-[85%] self-end flex-row-reverse">
+<div class="bg-secondary-container rounded-xl p-6 shadow-[0_15px_30px_rgba(0,0,0,0.05)] rounded-tr-sm">
+<p class="font-body-lg text-body-lg text-on-secondary-container">It feels like a dull, squeezing pressure right in the center. It started about 20 minutes ago while I was sitting down.</p>
+</div>
+</div>
+<!-- AI Response & Action -->
+<div class="flex gap-4 max-w-[85%]">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0 shadow-sm border border-outline-variant/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">vital_signs</span>
+</div>
+<div class="bg-surface rounded-xl p-6 shadow-[0_30px_60px_rgba(0,0,0,0.04)] rounded-tl-sm border border-white/50">
+<p class="font-body-lg text-body-lg text-on-surface mb-4">I understand. Based on your description and vital history, I have updated your risk profile to Medium. I strongly recommend a medical evaluation to be safe.</p>
+<div class="flex flex-col sm:flex-row gap-3">
+<button class="bg-primary text-on-primary font-label-sm text-label-sm py-3 px-5 rounded-full flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-md">
+<span class="material-symbols-outlined text-[18px]">call</span>
+                        Contact Care Team
+                    </button>
+<button class="bg-surface-variant text-on-surface-variant font-label-sm text-label-sm py-3 px-5 rounded-full flex items-center justify-center gap-2 hover:bg-surface-dim transition-colors">
+<span class="material-symbols-outlined text-[18px]">map</span>
+                        Find Nearest Clinic
+                    </button>
+</div>
+</div>
+</div>
+<!-- Voice Waveform Centerpiece -->
+<div class="w-full flex flex-col items-center justify-center mt-stack-lg mb-stack-sm relative h-32">
+<!-- Decorative Glow -->
+<div class="absolute inset-0 bg-primary/5 blur-3xl rounded-full w-64 h-32 mx-auto"></div>
+<p class="font-label-sm text-label-sm text-primary mb-6 animate-pulse z-10">Listening...</p>
+<div class="flex items-center gap-1.5 z-10 h-16">
+<div class="w-2.5 h-6 bg-primary rounded-full opacity-40"></div>
+<div class="w-2.5 h-10 bg-primary rounded-full opacity-60"></div>
+<div class="w-2.5 h-16 bg-primary rounded-full opacity-80"></div>
+<div class="w-2.5 h-20 bg-primary rounded-full opacity-100"></div>
+<div class="w-2.5 h-14 bg-primary rounded-full opacity-70"></div>
+<div class="w-2.5 h-8 bg-primary rounded-full opacity-50"></div>
+<div class="w-2.5 h-12 bg-primary rounded-full opacity-60"></div>
+</div>
+</div>
+</main>
+<!-- Input Area -->
+<div class="fixed bottom-[110px] left-0 w-full px-container-padding z-40 flex justify-center pointer-events-none">
+<div class="w-full max-w-4xl bg-surface-container-low rounded-full p-2 flex items-center gap-2 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-white pointer-events-auto">
+<button class="w-12 h-12 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-colors shrink-0">
+<span class="material-symbols-outlined">add</span>
+</button>
+<input autocomplete="off" class="flex-1 bg-transparent border-none focus:ring-0 font-body-md text-body-md text-on-surface placeholder:text-outline px-2" placeholder="Speak or type your symptoms..." type="text"/>
+<button class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-md hover:bg-primary-container transition-colors shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md rounded-full border border-white/30 bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl glassmorphism backdrop-saturate-150 shadow-[0_20px_50px_rgba(0,0,0,0.1)] fixed bottom-8 left-0 right-0 z-50 flex justify-around items-center px-6 py-3">
+<!-- Home (Inactive) -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors w-16" href="#">
+<span class="material-symbols-outlined mb-1">grid_view</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Home</span>
+</a>
+<!-- Track (Inactive) -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors w-16" href="#">
+<span class="material-symbols-outlined mb-1">distance</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Track</span>
+</a>
+<!-- SOS (Inactive) -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors w-16" href="#">
+<span class="material-symbols-outlined mb-1">emergency</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">SOS</span>
+</a>
+<!-- Chat (Active) -->
+<a class="flex flex-col items-center justify-center text-green-700 dark:text-green-400 scale-110 transition-transform Active: ring-4 ring-green-500/10 rounded-full transition-all w-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Chat</span>
+</a>
+<!-- Profile (Inactive) -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-green-600 transition-colors w-16" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-['Inter'] text-[10px] font-semibold uppercase tracking-widest">Profile</span>
+</a>
+</nav>
+</body></html>
