@@ -458,7 +458,7 @@ See [`backend/.env.example`](backend/.env.example) for the complete template.
 
 ## 👥 Authors
 
-- **Chinmay Giri** — Full-Stack Development & System Design
+- **Manu Priyan** — Full-Stack Development & System Design
 
 ---
 
